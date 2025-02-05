@@ -9,6 +9,14 @@
 ```cmd
 python main.py
 ```
+### 실행 화면
+```cmd
+C:\Users\USER\Desktop\jaejudo\Extract_Feature> set PYTHONPATH=C:\Users\USER\Desktop\jaejudo\Extract_Feature
+C:\Users\USER\Desktop\jaejudo\Extract_Feature> python main.py
+라벨이 저장된 csv 위치 입력 : C:\Users\USER\Desktop\jaejudo\Extract_Feature\value\extract_csv
+추출된 특징이 저장된 csv 위치 입력 : C:\Users\USER\Desktop\jaejudo\Extract_Feature\value\extract_label_csv\label.csv
+특징과 라벨이 합쳐진 결과 저장할 csv 위치 입력 : C:\Users\USER\Desktop\jaejudo\Extract_Feature\value\extract_csv
+```
 
 ## 목록
 ### 1. function
