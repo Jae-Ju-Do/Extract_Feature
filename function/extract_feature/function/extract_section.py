@@ -1,8 +1,9 @@
 import pefile
 from .calculate_entropy import CalculateEntropy
-from value.section_value import section_list, section_object
+from value.extract_feature.section_value import section_list, section_object
 
-def ExtractSectionToDf(section_save, section_object, section_check, list_value):
+# selection 데이터 추출 후 list에 저장
+def ExtractSectionToList(section_save, section_object, section_check, list_value):
     value = []
     if section_check:
         for key in section_object:
@@ -19,6 +20,7 @@ def ExtractSectionToDf(section_save, section_object, section_check, list_value):
         value.append(0)
     list_value += value
 
+# selection 데이터 추출
 def ExtractSection(file_path, list_value):
     pe = pefile.PE(file_path)
 
@@ -29,4 +31,4 @@ def ExtractSection(file_path, list_value):
             if section.Name.decode().rstrip('\x00') == section_name:
                 section_check = True
                 section_save = section
-        ExtractSectionToDf(section_save, section_object, section_check, list_value)
+        ExtractSectionToList(section_save, section_object, section_check, list_value)

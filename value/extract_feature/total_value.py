@@ -1,3 +1,4 @@
+# 최종적으로 extract_feature를 통해 추출될 변수 list
 total_value = [
 "file_name",
 "is_pe",
