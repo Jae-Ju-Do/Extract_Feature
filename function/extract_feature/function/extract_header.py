@@ -1,0 +1,29 @@
+import pefile
+import pandas as pd
+from value.extract_feature.header_value import header_value
+
+# header 데이터 추출 후 list에 저장
+def ExtractHeaderToList(pe, field_path, list_value):
+    try:
+        header_name, field_name = field_path.split('/')
+        header_obj = getattr(pe, header_name, None)
+        
+        if header_obj and hasattr(header_obj, field_name):
+            value = getattr(header_obj, field_name)
+            if isinstance(value, bytes): 
+                value = ' '.join([f'{byte:02x}' for byte in value])
+            elif isinstance(value, int):
+                value = hex(value)
+        else:
+            value = 0
+    except Exception:
+        value = 0  
+
+    list_value.append(value)
+
+# header 데이터 추출
+def ExtractHeader(file_path, list_value):
+    pe = pefile.PE(file_path)
+
+    for field_path in header_value:
+        ExtractHeaderToList(pe, field_path, list_value)

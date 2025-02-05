@@ -1,3 +1,4 @@
+# 추출할 섹션 리스트 정보
 section_list = [
     ".text",       # 프로그램 실행 코드 (기계어, import address table 정보 포함)
     ".data",       # 초기화된 데이터 (전역 변수 및 static 변수, 읽기/쓰기 가능)
@@ -21,6 +22,7 @@ section_list = [
     ".exidx"       # ARM 예외 처리 테이블 (ARM 플랫폼에서 사용)
 ]
 
+# 섹션에서 추출할 데이터 리스트 정보
 section_object = [
     'Misc', 
     'Misc_PhysicalAddress', 

@@ -1,16 +1,18 @@
 from .is_pefile import IsPefile
 from .extract_header import ExtractHeader
 from .extract_section import ExtractSection
-from .extract_dir_entry import ExtractDirEntry
+from .extract_dir_entropy import ExtractDirEntropy
 from .extract_export import ExtractExport
 from .extract_import import ExtractImport
 from .extract_dll import ExtractDll
 from .extract_byte_entropy import ExtractByteEntropy
 
-from value.total_value import total_value
+from value.extract_feature.total_value import total_value
+
 import os
 import pandas as pd
 
+# 파일의 특징 추출
 def ExtractFeatureFile(dir, name):
     df = pd.DataFrame(columns=['Key', 'Value'])
     list_value = []
@@ -21,7 +23,7 @@ def ExtractFeatureFile(dir, name):
         try:
             ExtractHeader(file_path, list_value)
             ExtractSection(file_path, list_value)
-            ExtractDirEntry(file_path, list_value)
+            ExtractDirEntropy(file_path, list_value)
             ExtractExport(file_path, list_value)
             ExtractImport(file_path, list_value)
             ExtractDll(file_path, list_value)
@@ -38,6 +40,8 @@ def ExtractFeatureFile(dir, name):
 
     return df
 
+
+# 디렉토리의 내부 파일 접근 후 파일 특징 추출
 def ExtractFeatureDir(dir):
     all_data = []
     number = 0
@@ -47,8 +51,6 @@ def ExtractFeatureDir(dir):
             print(f"{number} || {file_name}") 
             file_data = ExtractFeatureFile(dir, file_name)
             all_data.append(file_data)  
-            if number == 1000:
-                break
 
     combined_df = pd.concat(all_data, ignore_index=True)
     return combined_df

@@ -169,3 +169,13 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# value
+value/extract_csv/*
+value/extract_exe_file/*
+value/extract_label/*
+
+!value/extract_csv/*.md
+!value/extract_exe_file/*.md
+!value/extract_label/*.md

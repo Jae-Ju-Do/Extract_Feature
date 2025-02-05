@@ -1,5 +1,6 @@
 import pefile
 
+# export 데이터 추출
 def ExtractExport(file_path, list_value):
     pe = pefile.PE(file_path)
 

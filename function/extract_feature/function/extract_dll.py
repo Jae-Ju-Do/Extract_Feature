@@ -1,6 +1,7 @@
 import pefile
-from value.extract_value import dll_list
+from value.extract_feature.api_value import dll_list
 
+# dll 데이터 추출
 def ExtractDll(file_path, list_value):
     pe = pefile.PE(file_path)
     
