@@ -1,6 +1,7 @@
 import pefile
 
-def ExtractDirEntry(file_path, list_value):
+# dir 엔트로피 추출 
+def ExtractDirEntropy(file_path, list_value):
     pe = pefile.PE(file_path)
     for directory in pe.OPTIONAL_HEADER.DATA_DIRECTORY:
         value = False

@@ -1,4 +1,5 @@
-api_list = [
+
+import_list = [
     # 시스템 정보 및 시간 관련 API
     'GetSystemInfo', 'GetNativeSystemInfo', 'GlobalMemoryStatus', 'GlobalMemoryStatusEx', 'GetTickCount', 
     'GetTickCount64', 'QueryPerformanceCounter', 'GetSystemTime', 'GetSystemTimeAsFileTime', 'GetLocalTime', 

@@ -1,6 +1,7 @@
 import math
 from collections import Counter
 
+# 엔트로피 계산
 def CalculateEntropy(data):
     # 각 바이트의 빈도 계산
     counter = Counter(data)
