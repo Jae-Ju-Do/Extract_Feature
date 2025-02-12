@@ -37,7 +37,6 @@ def ExtractFeatureFile(dir, name):
     df = pd.DataFrame(data_dict)
 
     df = df.set_index('Key').T 
-
     return df
 
 

@@ -7,16 +7,18 @@
 ## 실행
 ### 실행 방법
 
-**실행전 아래의 명령어를 무조건 실행합니다.**
+**★☆실행전 아래의 명령어를 무조건 실행합니다.★☆**
 ```cmd
-set PYTHONPATH=C:\Users\USER\Desktop\jaejudo\Extract_Featur```
+set PYTHONPATH=C:\Users\USER\Desktop\jaejudo\Extract_Feature
+```
 
 이후 아래의 명령어를 실행합니다.
+
 ```cmd
 python main.py
 ```
 
-### 실행 화면
+### 실행 화면 (예시시)
 ```cmd
 C:\Users\USER\Desktop\jaejudo\Extract_Feature> set PYTHONPATH=C:\Users\USER\Desktop\jaejudo\Extract_Feature
 C:\Users\USER\Desktop\jaejudo\Extract_Feature> python main.py
