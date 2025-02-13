@@ -15,9 +15,9 @@ def ExtractHeaderToList(pe, field_path, list_value):
             elif isinstance(value, int):
                 value = hex(value)
         else:
-            value = 0
+            value = None
     except Exception:
-        value = 0  
+        value = None  
 
     list_value.append(value)
 

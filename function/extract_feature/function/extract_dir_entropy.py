@@ -21,6 +21,6 @@ def ExtractDirEntropy(file_path, list_value):
         
         if not directory_found:
             list_value.append(False) 
-            list_value.append(hex(0))   
-            list_value.append(0)   
+            list_value.append(None)   
+            list_value.append(None)   
             print(f"Directory {full_directory_name} not found.")
