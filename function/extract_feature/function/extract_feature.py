@@ -22,16 +22,48 @@ def ExtractFeatureFile(dir, name):
     if list_value[1]:
         try:
             ExtractHeader(file_path, list_value)
+        except Exception as e:
+            list_value[2:60] = [0] * 58
+            print(f"추출 오류(ExtractHeader): {e}")
+
+        try:
             ExtractSection(file_path, list_value)
+        except Exception as e:
+            list_value[60:300] = [0] * 240 
+            print(f"추출 오류(ExtractSection): {e}")
+
+        try:
             ExtractDirEntropy(file_path, list_value)
+        except Exception as e:
+            list_value[300:348] = [0] * 48 
+            print(f"추출 오류(ExtractDirEntropy): {e}")
+        
+        try:
             ExtractExport(file_path, list_value)
+        except Exception as e:
+            list_value[348:349] = [0] * 1
+            print(f"추출 오류(ExtractExport): {e}")
+
+        try:
             ExtractImport(file_path, list_value)
+        except Exception as e:
+            list_value[349:759] = [0] * 410
+            print(f"추출 오류(ExtractImport): {e}")
+
+        try:
             ExtractDll(file_path, list_value)
+        except Exception as e:
+            list_value[759:818] = [0] * 59
+            print(f"추출 오류(ExtractDll): {e}")
+        
+        try:
             ExtractByteEntropy(file_path, list_value)
         except Exception as e:
-            list_value[2:] = [0] * (len(total_value) - 2)
+            list_value[818:882] = [0] * 64 
+            print(f"추출 오류(ExtractByteEntropy): {e}")
     else:
         list_value[2:] = [0] * (len(total_value) - 2)
+        print("추출(IsPefile): pe 파일이 아닙니다.")
 
     data_dict = {'Key': total_value[:len(list_value)], 'Value': list_value}
     df = pd.DataFrame(data_dict)

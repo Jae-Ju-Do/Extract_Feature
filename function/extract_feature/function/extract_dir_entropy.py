@@ -1,4 +1,5 @@
 import pefile
+import numpy as np
 from value.extract_feature.dir_entropy import directory_names
 
 # dir 엔트로피 추출 
@@ -12,15 +13,13 @@ def ExtractDirEntropy(file_path, list_value):
         for directory in pe.OPTIONAL_HEADER.DATA_DIRECTORY:
             if directory.name == full_directory_name:
                 directory_found = True
-                
-                value = hasattr(pe, directory.name.replace("IMAGE_", ""))
-                list_value.append(value)
+                list_value.append(True)
                 list_value.append(hex(directory.VirtualAddress))
                 list_value.append(directory.Size)
                 break
         
         if not directory_found:
             list_value.append(False) 
-            list_value.append(None)   
-            list_value.append(None)   
+            list_value.append(hex(0))   
+            list_value.append(0)   
             print(f"Directory {full_directory_name} not found.")

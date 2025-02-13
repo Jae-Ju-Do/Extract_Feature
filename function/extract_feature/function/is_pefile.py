@@ -6,6 +6,5 @@ def IsPefile(file_path, list_value):
     try:
         pefile.PE(file_path)
         list_value.append(True)
-    except Exception as e:
-        print(e)
+    except:
         list_value.append(False)

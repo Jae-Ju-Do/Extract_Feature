@@ -3,14 +3,14 @@ from .calculate_entropy import CalculateEntropy
 from value.extract_feature.section_value import section_list, section_object
 
 # selection 데이터 추출 후 list에 저장
-def ExtractSectionToList(section_save, section_object, section_check, list_value):
+def ExtractSectionToList(section_save, section_check, list_value):
     value = []
     if section_check:
         for key in section_object:
             if hasattr(section_save, key):
                 value.append(hex(getattr(section_save, key)))
             else:
-                value.append(0)
+                value.append(None)
         section_data = section_save.get_data()
         entropy = CalculateEntropy(section_data)
         value.append(entropy)
@@ -31,4 +31,4 @@ def ExtractSection(file_path, list_value):
             if section.Name.decode().rstrip('\x00') == section_name:
                 section_check = True
                 section_save = section
-        ExtractSectionToList(section_save, section_object, section_check, list_value)
+        ExtractSectionToList(section_save, section_check, list_value)

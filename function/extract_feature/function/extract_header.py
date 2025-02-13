@@ -16,7 +16,7 @@ def ExtractHeaderToList(pe, field_path, list_value):
                 value = hex(value)
         else:
             value = None
-    except Exception:
+    except:
         value = None  
 
     list_value.append(value)
