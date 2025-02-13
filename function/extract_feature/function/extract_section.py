@@ -16,8 +16,8 @@ def ExtractSectionToList(section_save, section_object, section_check, list_value
         value.append(entropy)
     else:
         for key in section_object:
-            value.append(0)
-        value.append(0)
+            value.append(None)
+        value.append(None)
     list_value += value
 
 # selection 데이터 추출
